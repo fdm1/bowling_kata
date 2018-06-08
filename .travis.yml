@@ -1,0 +1,22 @@
+language: python
+
+matrix:
+  include:
+    - language: python
+      python: 3.6
+      env: TOXENV=py36
+      install:
+        - cd python_bowling
+        - pip install tox-travis
+        - pip install .
+        - pip install -r test-requirements.txt
+      script: tox
+    - language: python
+      python: 3.6
+      env: TOXENV=lint
+      install:
+        - cd python_bowling
+        - pip install tox-travis
+        - pip install .
+        - pip install -r test-requirements.txt
+      script: tox
